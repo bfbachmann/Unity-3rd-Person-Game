@@ -1,33 +1,59 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Evelator : MonoBehaviour {
+public class Elevator : MonoBehaviour
+{
 
 	bool moveUp = false;
-	bool moveDown = false;
-
+	int waitTime = 0;
 	public GameObject player;
 
-	void Start () {
+
+	void Start ()
+	{
 
 	}
 
-	void OnCollisionEnter (Collision collision) {
-		if (collision.collider.name == "Player") {
+	void OnCollisionEnter (Collision collision)
+	{
+		if (withPlayer (collision)) {
 			moveUp = true;
 		}
 	}
 
-	void Update () {
-		Rigidbody rb = GetComponent<Rigidbody> ();
-		Debug.Log (rb.velocity);
-		if (transform.position.y >= 10) {
+	void OnCollisionExit (Collision collision)
+	{
+		if (withPlayer (collision)) {
 			moveUp = false;
-		} 
+		}
+	}
 
+	bool withPlayer (Collision collision)
+	{
+		return collision.collider.name == player.name;
+	}
+
+	void Update ()
+	{
+		Rigidbody rb = GetComponent<Rigidbody> ();
+
+
+		if (transform.position.y >= 14) {
+//			rb.velocity = Vector3.zero;
+			rb.Sleep ();
+			waitTime++;
+
+			if (waitTime > 50) {
+				rb.WakeUp ();
+				waitTime = 0;
+			}
+			return;
+		}
 
 		if (moveUp) {
-			rb.velocity = Vector3.up * 10;
-		} 
+			rb.velocity = Vector3.up * 5;
+		} else if (!moveUp) {
+			rb.velocity = Vector3.down * 3;
+		}
 	}
 }
