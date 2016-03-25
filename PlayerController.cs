@@ -52,10 +52,14 @@ public class PlayerController : MonoBehaviour {
 
 
 	private void moveCharacter () {
+		if (!groundCheck ()) {
+			return;
+		}
+
 		tempTarget = Input.GetAxis ("Vertical") * theCamera.transform.forward + Input.GetAxis ("Horizontal") * theCamera.transform.right;
 		tempTarget.y = 0f;
 
-		if (tempTarget.magnitude == 0 && groundCheck ()) {
+		if (tempTarget.magnitude == 0) {
 			rb.velocity = new Vector3 (0f, rb.velocity.y, 0f);
 		} else {
 			if (Input.GetKey (KeyCode.LeftShift)) {
