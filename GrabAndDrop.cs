@@ -66,7 +66,7 @@ public class GrabAndDrop : MonoBehaviour
 			return;
 		}
 		Vector3 forward = playerCamera.transform.forward;
-		forward.y = 1f;
+		forward.y = 0.7f;
 		forward *= 10;
 		grabbedObject.GetComponent<Rigidbody> ().velocity = forward;
 		grabbedObject = null;
@@ -86,8 +86,8 @@ public class GrabAndDrop : MonoBehaviour
 				throwObject ();
 			} else {
 				Vector3 forward = playerCamera.transform.forward;
-				forward.y = 0.2f;
-				Vector3 newPosition = gameObject.transform.position + forward * grabbedObjectSize;
+				forward.y = 0.5f;
+				Vector3 newPosition = gameObject.transform.position + forward * (float) (grabbedObjectSize/1.5);
 				grabbedObject.transform.position = newPosition;
 			}
 		}

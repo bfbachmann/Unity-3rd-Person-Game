@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour {
 	public float jumpVelocity = 3;
 	private float distToGround = 3f;
 	public float maxSpeed;
-	Vector3 slowdownScale = new Vector3(0.2f, 1f, 0.2f);
 
 
 	void Start () {
@@ -55,16 +54,14 @@ public class PlayerController : MonoBehaviour {
 	private void moveCharacter () {
 		tempTarget = Input.GetAxis ("Vertical") * theCamera.transform.forward + Input.GetAxis ("Horizontal") * theCamera.transform.right;
 		tempTarget.y = 0f;
-		float speedLimit = maxSpeed;
 
 		if (tempTarget.magnitude == 0 && groundCheck ()) {
 			rb.velocity = new Vector3 (0f, rb.velocity.y, 0f);
 		} else {
 			if (Input.GetKey (KeyCode.LeftShift)) {
-				speedLimit = 20f;
 				tempTarget *= 2;
 			}
-			rb.velocity = tempTarget*10;
+			rb.velocity = new Vector3(tempTarget.x*10, rb.velocity.y, tempTarget.z*10);
 		}
 		
 		if ((Input.GetKeyDown ("space")) && groundCheck ()) {
