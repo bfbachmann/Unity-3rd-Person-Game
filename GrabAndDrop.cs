@@ -23,7 +23,10 @@ public class GrabAndDrop : MonoBehaviour
 		Vector3 target = position + forward * range;
 
 		if (Physics.Linecast (position, target, out raycastHit)) {
-			return raycastHit.collider.gameObject;
+			GameObject grabObject = raycastHit.collider.gameObject;
+			if (grabObject.GetComponent<Grabable>() != null) {
+				return grabObject;
+			}
 		}
 		return null;
 	}

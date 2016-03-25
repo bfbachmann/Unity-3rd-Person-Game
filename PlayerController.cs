@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour {
 	public Camera theCamera;
 	private Vector3 moveDirection;
 	private Vector3 tempTarget;
-	public float jumpVelocity = 3;
-	private float distToGround = 3f;
+	public float jumpVelocity = 4;
+	private float distToGround = 1.5f;
 	public float maxSpeed;
 
 
