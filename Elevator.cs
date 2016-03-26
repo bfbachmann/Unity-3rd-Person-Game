@@ -43,7 +43,7 @@ public class Elevator : MonoBehaviour
 			rb.Sleep ();
 			waitTime++;
 
-			if (waitTime > 50) {
+			if (waitTime > 25) {
 				rb.WakeUp ();
 				waitTime = 0;
 			}

@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 	private Vector3 moveDirection;
 	private Vector3 tempTarget;
 	public float jumpVelocity = 7;
-	private float distToGround = 1.5f;
+	private float distToGround = 0.6f;
 	public float maxSpeed;
 	private Animator animator;
 
@@ -21,13 +21,17 @@ public class PlayerController : MonoBehaviour {
 		rb.useGravity = true;
 		rb.drag = 0.1f;
 		animator = gameObject.GetComponentInChildren<Animator> ();
-		Debug.Log (animator);
 	}
 
 
 	public void updateAnimation () {
 
 		bool isHolding = gameObject.GetComponent<GrabAndDrop> ().isHolding ();
+
+		if (!groundCheck()) {
+			animator.SetInteger ("AnimParam", 2);
+			return;
+		}
 
 		if (isHolding) {
 			if (Input.GetKey("w") || Input.GetKey("s")) {
@@ -83,20 +87,20 @@ public class PlayerController : MonoBehaviour {
 				tempTarget *= 1.5f;
 				animator.speed = 5;
 			} else {
-				animator.speed = 2;
+				animator.speed = 3;
 			}
 			rb.velocity = new Vector3(tempTarget.x*10, rb.velocity.y, tempTarget.z*10);
 		}
 		
 		if ((Input.GetKeyDown ("space")) && groundCheck ()) {
 			rb.velocity += new Vector3 (0f, jumpVelocity, 0f);
-			animator.SetInteger ("AnimParam", -1);
+			animator.SetInteger ("AnimParam", 2);
 		}
 	}
 		
 
 	bool groundCheck() {
-		return Physics.Raycast(transform.position, -Vector3.up, distToGround);
+		return Physics.Raycast(transform.position, Vector3.down, distToGround);
 	}
 
 }
