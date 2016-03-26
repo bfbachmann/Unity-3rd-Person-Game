@@ -9,9 +9,10 @@ public class PlayerController : MonoBehaviour {
 	public Camera theCamera;
 	private Vector3 moveDirection;
 	private Vector3 tempTarget;
-	public float jumpVelocity = 4;
+	public float jumpVelocity = 7;
 	private float distToGround = 1.5f;
 	public float maxSpeed;
+	private Animator animator;
 
 
 	void Start () {
@@ -19,11 +20,37 @@ public class PlayerController : MonoBehaviour {
 		rb.mass = 5f;
 		rb.useGravity = true;
 		rb.drag = 0.1f;
+		animator = gameObject.GetComponentInChildren<Animator> ();
+		Debug.Log (animator);
 	}
 
 
+	public void updateAnimation () {
+
+		bool isHolding = gameObject.GetComponent<GrabAndDrop> ().isHolding ();
+
+		if (isHolding) {
+			if (Input.GetKey("w") || Input.GetKey("s")) {
+				animator.SetInteger ("AnimParam", 3);
+			} else if (Input.GetKey("d") || Input.GetKey("a")) {
+				animator.SetInteger ("AnimParam", 1);
+			} else {
+				animator.SetInteger ("AnimParam", 2);
+			}
+		} else {
+			if (Input.GetKey("w") || Input.GetKey("s")) {
+				animator.SetInteger ("AnimParam", 0);
+			} else if (Input.GetKey("d") || Input.GetKey("a")) {
+				animator.SetInteger ("AnimParam", 4);
+			} else {
+				animator.SetInteger ("AnimParam", 5);
+			}
+		}
+	}
+
 
 	void FixedUpdate (){
+		updateAnimation ();
 		updateRotation ();
 		moveCharacter ();
 	}
@@ -31,23 +58,13 @@ public class PlayerController : MonoBehaviour {
 
 
 	private void updateRotation () {
-		
-		Vector3 cameraForward = theCamera.transform.TransformDirection (Vector3.forward);
-		cameraForward.y = 0f;
-		cameraForward = cameraForward.normalized;
 
-		Vector3 cameraRight = new Vector3 (cameraForward.z, 0.0f, -cameraForward.x);
+		Quaternion rotation = theCamera.transform.rotation;
+		rotation.x = 0;
+		rotation.z = 0;
+		rotation *= Quaternion.Euler(0, 90, 0);
 
-		float vert = Input.GetAxisRaw ("Vertical");
-		float hor = Input.GetAxisRaw ("Horizontal");
-
-		Vector3 tempTarget = hor * cameraRight + vert * cameraForward;
-		if (tempTarget != Vector3.zero) {
-			moveDirection = Vector3.RotateTowards (moveDirection, tempTarget, rotSpeed * Mathf.Deg2Rad * Time.deltaTime, 1000);
-			moveDirection = moveDirection.normalized;
-			transform.rotation = Quaternion.LookRotation (moveDirection);
-		}
-
+		transform.rotation = rotation;
 	}
 
 
@@ -63,13 +80,17 @@ public class PlayerController : MonoBehaviour {
 			rb.velocity = new Vector3 (0f, rb.velocity.y, 0f);
 		} else {
 			if (Input.GetKey (KeyCode.LeftShift)) {
-				tempTarget *= 2;
+				tempTarget *= 1.5f;
+				animator.speed = 5;
+			} else {
+				animator.speed = 2;
 			}
 			rb.velocity = new Vector3(tempTarget.x*10, rb.velocity.y, tempTarget.z*10);
 		}
 		
 		if ((Input.GetKeyDown ("space")) && groundCheck ()) {
 			rb.velocity += new Vector3 (0f, jumpVelocity, 0f);
+			animator.SetInteger ("AnimParam", -1);
 		}
 	}
 		

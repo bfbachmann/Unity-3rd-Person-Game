@@ -39,7 +39,7 @@ public class Elevator : MonoBehaviour
 
 
 		if (transform.position.y >= 14) {
-//			rb.velocity = Vector3.zero;
+			rb.velocity = Vector3.zero;
 			rb.Sleep ();
 			waitTime++;
 
