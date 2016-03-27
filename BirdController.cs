@@ -33,7 +33,6 @@ public class BirdController : MonoBehaviour {
 
 	void circlePlayer() {
 		float current = Time.time;
-//		transform.position = player.transform.position + new Vector3 (5* Mathf.Cos (current), 0f, 5*Mathf.Sin(current));
 		gameObject.GetComponent<Rigidbody>().velocity = player.transform.position - transform.position + offset + new Vector3 (5* Mathf.Cos (current), 0f, 5*Mathf.Sin(current));
 	}
 }
