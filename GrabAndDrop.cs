@@ -98,9 +98,10 @@ public class GrabAndDrop : MonoBehaviour
 				gameObject.GetComponent<PlayerController> ().updateAnimation();
 			} else {
 				Vector3 forward = playerCamera.transform.forward;
-				forward.y = 0.5f;
+				forward.y = 0.7f;
 				Vector3 newPosition = gameObject.transform.position + forward * (float) (grabbedObjectSize/1.5);
 				grabbedObject.transform.position = newPosition;
+				grabbedObject.transform.rotation = playerCamera.transform.rotation;
 			}
 		}
 	}

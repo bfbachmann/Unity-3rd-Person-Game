@@ -100,7 +100,10 @@ public class PlayerController : MonoBehaviour {
 		
 
 	bool groundCheck() {
-		return Physics.Raycast(transform.position, Vector3.down, distToGround);
+		bool ray1 = Physics.Raycast(transform.position + new Vector3(1f, 0f, 0f), Vector3.down, distToGround);
+		bool ray2 = Physics.Raycast(transform.position, Vector3.down, distToGround);
+		bool ray3 = Physics.Raycast(transform.position - new Vector3(1f, 0f, 0f), Vector3.down, distToGround);
+		return ray1 || ray2 || ray3;
 	}
 
 }
