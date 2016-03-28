@@ -32,3 +32,8 @@ flying.
 The environment is made up of an elevator, some basic terrain, and a series of platforms and trampolines that
 the player can use to get to otherwise unreachable parts of the map.
 
+###Features In Progress:
+
+I am currently working on newer, more complex friendly and enemy character AI, animations and models, see images below.
+![alt tag](https://github.com/bfbachmann/Unity-3rd-Person-Game/issues/1)
+
