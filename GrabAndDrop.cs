@@ -16,7 +16,7 @@ public class GrabAndDrop : MonoBehaviour
 
 	GameObject getMouseHoverObject (float range)
 	{
-		Vector3 position = gameObject.transform.position;
+		Vector3 position = gameObject.transform.position + gameObject.transform.forward/2f;
 		position.y -= 0.1f;
 		RaycastHit raycastHit;
 		Vector3 forward = playerCamera.transform.forward;
@@ -81,7 +81,12 @@ public class GrabAndDrop : MonoBehaviour
 		forward.y = 0.7f;
 		forward *= 10;
 		grabbedObject.GetComponent<Rigidbody> ().velocity = forward;
+//		grabbedObject.GetComponent<Rigidbody> ().AddForce (forward.normalized);
 		grabbedObject = null;
+	}
+
+	void clipping(Vector3 impulse) {
+		gameObject.GetComponent<Rigidbody> ().AddForce (impulse);
 	}
 
 	void Update ()

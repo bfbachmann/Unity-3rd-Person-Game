@@ -8,6 +8,7 @@ public class BirdController : MonoBehaviour {
 	float minSpeed = 6f;
 	bool sleeping = true;
 	bool initialSleep = true;
+	bool lockRotation = false;
 	Animator birdAnim;
 
 	void Start () {
@@ -18,6 +19,9 @@ public class BirdController : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision) {
 		if (collision.collider.name != "BlockMan" && !collision.collider.name.Contains("rock")) {
+//			Quaternion rotation = transform.rotation;
+//			transform.rotation.Set (0f, rotation.y, 0f, rotation.w);
+//			lockRotation = true;
 			return;
 		}
 		if (sleeping) {
@@ -31,6 +35,7 @@ public class BirdController : MonoBehaviour {
 	}
 	
 	void Update () {
+
 		if (initialSleep) {
 			gameObject.GetComponent<Rigidbody> ().Sleep ();
 		}
@@ -52,6 +57,12 @@ public class BirdController : MonoBehaviour {
 	}
 
 	void updateRotation () {
+
+//		if (lockRotation) {
+//			transform.rotation = transform.rotation;
+//			return;
+//		}
+
 		Rigidbody rb = gameObject.GetComponent<Rigidbody> ();
 		transform.forward = rb.velocity;
 	}

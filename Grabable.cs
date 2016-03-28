@@ -10,8 +10,9 @@ public class Grabable : MonoBehaviour {
 	
 	}
 
-	void OnCollisionEnter () {
-//		holder.BroadcastMessage("drop");
+	void OnCollisionEnter (Collision collision) {
+//		holder.BroadcastMessage("clipping", collision.impulse);
+		gameObject.GetComponent<Rigidbody> ().AddForce (collision.impulse);
 	}
 
 	// Update is called once per frame
