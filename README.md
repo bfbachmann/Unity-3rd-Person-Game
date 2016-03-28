@@ -2,7 +2,9 @@
 A 3D game I am developing to improve my skills with Unity and Blender. All scripts, character modelling, animation,
 and level design were done by me, the terrain texture was imported from the Unity Asset Store.
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE "Video Title")
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/kfaUY4PPUWg/0.jpg)](http://www.youtube.com/watch?v=kfaUY4PPUWg "Video Title")
+
+![Alt text](https://cloud.githubusercontent.com/assets/9647946/14074052/f8c7df92-f482-11e5-82ca-f57a938fd840.png?raw=true "Version 1")
 
 ##Current features:
 
