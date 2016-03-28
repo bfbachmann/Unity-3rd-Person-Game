@@ -1,6 +1,6 @@
 # Unity-3rd-Person-Game
 A 3D game I am developing to improve my skills with Unity and Blender. All scripts, character modelling, animation,
-and level design were made by me, the terrain texture was imported from the Unity Asset Store.
+and level design were done by me, the terrain texture was imported from the Unity Asset Store.
 
 
 
