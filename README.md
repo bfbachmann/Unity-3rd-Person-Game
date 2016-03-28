@@ -40,7 +40,7 @@ the player can use to get to otherwise unreachable parts of the map.
 ###Features In Progress:
 
 I am currently working on newer, more complex friendly and enemy character AI, animations and models, see Issues above for more 
-images. Current TODOs also include stopping camera and held-object clipping.
+images. Current TODOs also include stopping camera and held-object clipping and adding some much needed sound effects.
 
 ![Alt text](https://cloud.githubusercontent.com/assets/9647946/14073374/54fc3a20-f47d-11e5-8239-c52c96ba84ba.png?raw=true "New Character Model")
 
