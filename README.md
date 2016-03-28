@@ -28,8 +28,8 @@ of the player he it will begin to circle above the player.
 ###Animations:
 All character animations are mapped to their current movement state. Animations for the main character
 include holding objects, standing, walking forward and backward, side-strafing, and jumping or a combination
-of holding objects and another of the aforementioned animations. The only current animation of the bird is 
-flying.
+of holding objects and another of the aforementioned animations. The only current animations for the bird are 
+flight and sitting animations.
 
 ###Environment:
 The environment is made up of an elevator, some basic terrain, and a series of platforms and trampolines that
