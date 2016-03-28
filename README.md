@@ -16,9 +16,11 @@ The game currently features a simple main character and a bird companion.
 ###Player Controller:
 Player moves forward, backward, left, and right with the W, S, A, and D keys respectively. 
 Rotation is handled using the position of the mouse. The shift key is used to speed up character 
-movement when grounded (basically sprint), and the space key makes the character jump when grounded. 
-All character movement is relative to the position and rotation of the camera which is always at a 
-fixed offset from the player.
+movement when grounded (basically sprint), and the space key makes the character jump when grounded.
+To pick up objects the user must stand just behind them and press and hold the right mouse button,
+throwing is performed with the left mouse button while holding the object. I am however constantly
+tweaking this mechanic. All character movement is relative to the position and rotation of the camera 
+which is always at a fixed offset from the player.
 
 ###Bird Companion Controller:
 The bird follows the player. It will fly towards the player at a speed proportional to their separation.
@@ -38,7 +40,7 @@ the player can use to get to otherwise unreachable parts of the map.
 ###Features In Progress:
 
 I am currently working on newer, more complex friendly and enemy character AI, animations and models, see Issues above for more 
-images.
+images. Current TODOs also include stopping camera and held-object clipping.
 
 ![Alt text](https://cloud.githubusercontent.com/assets/9647946/14073374/54fc3a20-f47d-11e5-8239-c52c96ba84ba.png?raw=true "New Character Model")
 
