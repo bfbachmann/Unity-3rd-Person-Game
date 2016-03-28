@@ -8,19 +8,22 @@ public class GrabAndDrop : MonoBehaviour
 	public Camera playerCamera;
 	GameObject grabbedObject;
 	float grabbedObjectSize;
+	Vector3 positionOffset;
 
-	void Start ()
-	{
-	
+	void Start (){
 	}
+
 
 	GameObject getMouseHoverObject (float range)
 	{
 		Vector3 position = gameObject.transform.position;
+		position.y -= 0.1f;
 		RaycastHit raycastHit;
 		Vector3 forward = playerCamera.transform.forward;
 		forward.y = 0f;
 		Vector3 target = position + forward * range;
+		Debug.Log ("Target: " + target);
+		Debug.Log ("Position: " + position);
 
 		if (Physics.Linecast (position, target, out raycastHit)) {
 			GameObject grabObject = raycastHit.collider.gameObject;
@@ -97,10 +100,11 @@ public class GrabAndDrop : MonoBehaviour
 				throwObject ();
 				gameObject.GetComponent<PlayerController> ().updateAnimation();
 			} else {
-				Vector3 forward = playerCamera.transform.forward;
+				Vector3 forward = playerCamera.transform.forward * (float) (grabbedObjectSize/2);
 				forward.y = 0.7f;
-				Vector3 newPosition = gameObject.transform.position + forward * (float) (grabbedObjectSize/1.5);
-				grabbedObject.transform.position = newPosition;
+				positionOffset = gameObject.transform.forward*0.4f - gameObject.transform.right;
+				Vector3 newPosition = gameObject.transform.position + forward + Vector3.up;
+				grabbedObject.transform.position = newPosition + positionOffset;
 				grabbedObject.transform.rotation = playerCamera.transform.rotation;
 			}
 		}

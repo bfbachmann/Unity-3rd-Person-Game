@@ -11,7 +11,7 @@ public class Grabable : MonoBehaviour {
 	}
 
 	void OnCollisionEnter () {
-		holder.BroadcastMessage("drop");
+//		holder.BroadcastMessage("drop");
 	}
 
 	// Update is called once per frame
