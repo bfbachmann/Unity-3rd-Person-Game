@@ -34,6 +34,8 @@ the player can use to get to otherwise unreachable parts of the map.
 
 ###Features In Progress:
 
-I am currently working on newer, more complex friendly and enemy character AI, animations and models, see images below.
-![alt tag](https://github.com/bfbachmann/Unity-3rd-Person-Game/issues/1)
+I am currently working on newer, more complex friendly and enemy character AI, animations and models, see Issues above for more 
+images.
+
+![Alt text](https://cloud.githubusercontent.com/assets/9647946/14073377/58684a3c-f47d-11e5-98e2-bc9c9b0c1f51.png?raw=true "New Character Model")
 
