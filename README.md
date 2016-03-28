@@ -37,5 +37,5 @@ the player can use to get to otherwise unreachable parts of the map.
 I am currently working on newer, more complex friendly and enemy character AI, animations and models, see Issues above for more 
 images.
 
-![Alt text](https://cloud.githubusercontent.com/assets/9647946/14073377/58684a3c-f47d-11e5-98e2-bc9c9b0c1f51.png?raw=true "New Character Model")
+![Alt text](https://cloud.githubusercontent.com/assets/9647946/14073374/54fc3a20-f47d-11e5-8239-c52c96ba84ba.png?raw=true "New Character Model")
 
