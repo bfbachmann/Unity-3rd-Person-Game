@@ -2,7 +2,7 @@
 A 3D game I am developing to improve my skills with Unity and Blender. All scripts, character modelling, animation,
 and level design were done by me, the terrain texture was imported from the Unity Asset Store.
 
-[![IMAGE ALT TEXT](https://youtu.be/kfaUY4PPUWg)](https://youtu.be/kfaUY4PPUWg "Unity 3D Game Demo (version 1.0)")
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE "Video Title")
 
 ##Current features:
 
