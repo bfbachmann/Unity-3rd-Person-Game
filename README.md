@@ -5,7 +5,7 @@ and level design were done by me, the terrain texture was imported from the Unit
 ![Alt text](https://cloud.githubusercontent.com/assets/9647946/14074052/f8c7df92-f482-11e5-82ca-f57a938fd840.png?raw=true "Version 1")
 
 ##YouTube Demo:
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/kfaUY4PPUWg/0.jpg)](http://www.youtube.com/watch?v=kfaUY4PPUWg "YouTube Demo")
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/kfaUY4PPUWg/0.jpg)](http://www.youtube.com/watch?v=JK2lKgh4JSc "YouTube Demo")
 
 ##Current features:
 
